@@ -1,0 +1,630 @@
+#include <time.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+
+string_t user_name, user_name2, cheatsheet_1,choice_1, choice_2a, choice_3, choice_4, choice_5, choice_MID, choice_END;
+int msec = 0, trigger = 20000, num, x=0, choice_2; /* 10ms */
+int i, n=10 ;
+//time_t t;
+
+
+clock_t before = clock();
+
+
+
+//clock_t difference = clock() - before;
+//msec = difference * 1000 / CLOCKS_PER_SEC;
+
+void cheatsheet(){
+    printf("Would you like to see cheatsheet? yes or no?");
+    scanf("&s", &cheatsheet_1);
+    while(cheatsheet_1 != "yes" && cheatsheet != "Yes" && cheatsheet_1 == "no" &&  cheatsheet_1 == "No") {
+        printf("Invalid choice, plz press Run the code again\n");
+        scanf("&s", &cheatsheet_1);
+    }
+    if(cheatsheet_1 == "no" || cheatsheet == "No"){
+        printf("\n\nokay\n\n");
+    }    
+    if(cheatsheet_1 == "yes" ||  cheatsheet == "Yes") {
+        printf("Intro --> A --> 1-9 --> Fish! --> B --> A --> Middle1_A --> A --> Ending 1\n\
+                Intro --> A --> 1-9 --> Fish! --> B --> A --> Middle1_A --> B --> Ending 2\n\
+                Intro --> A --> 1-9 --> Fish! --> B --> A --> Middle1_A --> C --> Ending 3\n\
+                Intro --> A --> 1-9 --> Fish! --> B --> A --> Middle2_B --> A --> Ending 4\n\
+                Intro --> A --> 1-9 --> Fish! --> B --> A --> Middle2_B --> B --> Ending 5\n\
+                Intro --> A --> 1-9 --> Fish! --> B --> A --> Middle2_B --> C --> Ending 6\n\
+                Intro --> A --> 1-9 --> Fish! --> B --> A --> Middle3_C --> A --> Ending 7\n\
+                Intro --> A --> 1-9 --> Fish! --> B --> A --> Middle3_C --> B --> Ending 8\n\
+                Intro --> A --> 1-9 --> Fish! --> B --> A --> Middle3_C --> C --> Ending 9\n\
+                Intro --> B --> Loop to option A & B & C\n\
+                Intro --> C --> Die\n\
+                Intro --> A --> <1 --> loop to choose number\n\
+                Intro --> A --> >10 -- Die\n\
+                Intro --> A --> 1-9 --> if spell fish wrong --> die\n\
+                Intro --> A --> 1-9 --> Fish! --> A --> loop to option A & B\n\
+                Intro --> A --> 1-9 --> Fish! --> B --> B --> die\n");
+        exit(1);
+    }
+}
+
+void intro(){ //Introduction
+    printf("\nOnce upon a time there was two kid, name ",user_name," and ", user_name2," and is 6 years old\n");
+    printf("years old. They enjoy everything together, playing, eating, traveling,  camping, and even\n");
+    printf("dressing up as a wizard with pig look-alike outfit. One goal they desperately wanted was to achieve\n");
+    printf("and get a taste of a candy, the sweet, salty, sour, bitter, and umami taste are what they always dream of.\n");
+    printf("But their parent are very strict about candy due to the trauma they faced in the past,\n");
+    printf("so they’re not very fond of candy, even the thought of it. One day, out of curiosity,\n");
+    printf("they both ask their parent to buy them some candies, especially candy cane, the parent barked\n\
+    loudly in rejection. ",user_name," and ", user_name2," beg and beg, and it seemed like it’s\n\
+    going no where after countless time of rejection. So they use their last option of searching\n\
+    for one, unknowingly, they found a book that contain instructions how to summon a devil, they\nwere convinced that these devils would offer them candies by summoning them.\nThe rest goes on… \n\n");
+
+    printf("Pick the option that ",user_name," and ", user_name2," should choose:\n\
+    A.) - Use the book to summon the Devil\n\
+    B.) - Beg parent for candy\n\
+    C.) - Ignore\n\
+    ");
+    scanf("%s", &choice_1);
+    while(choice_1 != "A" && choice_1 != "a" && choice_1 != "B" && choice_1 != "b" && choice_1 != "C" && choice_1 != "c"){
+        printf("I'm sorry, that is not a choice. \n");
+        printf("Pick the option that ",user_name," and ", user_name2," should choose:\n\
+        A.) - Use the book to summon the Devil\n\
+        B.) - Beg parent for candy\n\
+        C.) - Ignore\n\
+        ");
+        scanf("%s", &choice_1);    
+    }
+}
+void Choice1A(){
+    printf("Please type (QUICK!): Attenrobendum eos, ad conundrum, ad ligand eos, pariter et solvendum, et ad congregantum eos Coram me!\n");
+    scanf("%s", &choice_1);
+    while ( msec > trigger || choice_1 != "Attenrobendum eos, ad conundrum, ad ligand eos, pariter et solvendum, et ad congregantum eos Coram me!"){
+        if(choice_1 != "Attenrobendum eos, ad conundrum, ad ligand eos, pariter et solvendum, et ad congregantum eos Coram me!"){
+            printf("\n\
+                    The two brothers’ lies feel a strange aura,\n\
+                    The drag of despair makes them say goodbye,\n\
+                    The horror consumes them both, or so they die, \n\
+                    Their parent met them in front of their own eyes.\n\n\
+                Nice, you typed the thing that are asked wrong, you summoned an entirely different beast\n\
+                instead and it destroyed the city,\n\
+                learn how to read, and type better next time.");
+            exit(1);
+        }
+        else if(msec > trigger){
+            printf("You took too long to summon, please try again.\n");
+            sleep(.5);
+            printf("Ready, set, go!\n");
+            clock_t before = clock(); //get a new start time
+            scanf("%s", &choice_1);
+            //clock_t difference = clock() - before;      //new end time
+            //msec = difference * 1000 / CLOCKS_PER_SEC;
+        }
+    }
+    printf("You have summoned successfully*");    
+    
+}
+
+
+
+
+void Choice1B(){
+    printf("\nYou know that their parents don’t like giving their kids candy.\n\n\
+Why even choose this option? \nDid you even read the story? \nTry a better option next time\n\n");
+    printf("Pick the option that ",user_name," and ", user_name2," should choose:\n\
+        A.) - Use the book to summon the Devil\n\
+        B.) - Beg parent for candy\n\
+        C.) - Ignore\n\
+        ");
+    scanf("%s", &choice_1);
+    while(choice_1 != "A" && choice_1 != "a" && choice_1 != "C" && choice_1 != "c"){
+        printf("I'm sorry, that was a bad choice. \n");
+        printf("Pick the option that ",user_name," and ", user_name2," should choose:\n\
+        A.) - Use the book to summon the Devil\n\
+        B.) - Beg parent for candy\n\
+        C.) - Ignore\n\
+        ");
+        scanf("%s", &choice_1);    
+    }
+
+}    
+void Choice1C() {
+    printf("Their craving for candies intensified; they tried to find ways to search for candies but with no luck.\n\
+    Eventually, they met a sketchy man down an alley offering candy free of charge.\n\
+    They reluctantly took it without question and ate it without their parent's knowledge.\n\
+    When they arrived home, they immediately fell and died to poison.\n\n\
+    \nI guess their parent didn’t teach them about “stranger danger” and not to take things from strangers,\n\
+    especially a man down a sketchy alleyway with a hoodie on.");
+    exit(1);
+}
+
+int death = 10;
+int alive = 1;
+
+
+void Choice2A(){
+    printf("Thank for summoning me kiddos, now as a reward, what do you two want? wealth? fame? infinite power? Name as you wish.\n");
+    sleep(3);
+    printf(user_name," & ", user_name2,": OMG OMG OMG!NO WAY HES REAL, CNADY WE WANT CANDY!! CANDY CANE TO BE EXACT!!");
+    printf("Devil: How much candy cane do yall want? (1 digit is recommended)");
+    scanf("%i", &choice_2);
+        while(choice_2 < 1) {
+            printf("Sorry you can't wish for no candy, don't waste your wish, please choose a valid number ");
+            printf("Devil: How much candy cane do yall want? (1 digit is recommended)");
+            scanf("%i", &choice_2);
+        }           
+        if(choice_2 >= death){
+            printf(user_name," & ", user_name2," both died from eating too much candy cane because they were allergic to sweet");
+            exit(1);
+        }else{
+            printf("Devil: Here you guys go... both ", user_name," & ", user_name2," run off and finished their delicious\n\
+            candy. Both was extraodinary happy, and forget all about the deal they made with Azael.\n");
+        }
+}
+
+
+
+void Choice3A(){
+    printf( user_name, "Hey ",user_name," I caught something big!!\n"
+            ,user_name2, ": Woah!! Come on, pull harder!\n"
+            ,user_name, ": Don’t just stand there, idiot, help me!\n\
+    \n\
+            Please type 'Fish!' to catch some random amount of fish, don't do it too much though.");
+    scanf("%s", &choice_3);
+         
+    if( choice_3 == "Fish!" || choice_3 == "Fish" || choice_3 == "fish"){
+        x=randint(1,50);
+        printf(user_name, " & ",user_name2,": Caught %d fish\n", x);
+            
+    } 
+    if( choice_3 == "Fish!" || choice_3 == "Fish" || choice_3 == "fish"){
+        x=randint(1,50);
+        printf(user_name, " & ",user_name2,": Caught another %d fish\n", x);
+    }
+   
+//    return(0);
+    
+    else{
+        printf("You entered the word wrong, due to ",user_name, " & ",user_name2," unable to catch any fish, their\n\
+        patient led to them having heat stroke in the sun due to staying for prolonged period of time\n");
+        exit(1);
+    }
+}
+
+void Choice4A(){
+    printf(user_name, "&" ,user_name2,": \n\
+    Continued to fish. As the sun almost sets, they plan to go home,\n\
+    but they suddenly encounter an entity who introduces himself as the devil and reminds them of the deal they\n\
+    made when they were little, though they vaguely remember it. The devil reminds them about the deal they\n\
+    struck again, and for sure, ",user_name," and ",user_name2," now remember.\n\
+    \n\
+    A.) Refuse to submit to the deal\n\
+    B.) \" What are the consequences of the deal we have struck?\"");
+        scanf("%s", &choice_4);
+    while(choice_4 != "A" && choice_4 != "a" && choice_4 != "B" && choice_4 != "b") { 
+        printf("Invalid choice, plz choose again");
+        scanf("%s", &choice_4);
+        while(choice_4 == "A" || choice_4 == "a") {
+            printf("ARE YOU OUT OF UR MIND!?!?!? THE RESULTS OF THIS WILL NEVER END WELL.\n\
+                I will be nice and force you to choose the other option. Go on try again;\n\
+                pick a better option, plz."); 
+            scanf("%s", &choice_4);
+        }
+    }
+}
+
+void Choice4B(){
+    if(choice_4 == "B" || choice_4 == "b") {
+        printf("Devil: Well, it’s not a consequence, but I will be giving you a chance\n\
+                to let go of this deal you’ve struck since kids; that’s why I felt pity for you.\n\
+                Basically ",user_name," and ",user_name2," you two will collect the souls of this creature\n\
+                who are in debt with my deals; I am unable to identify which specific creature due to it having\n\
+                a special ability of shape-shifting, but I can give you a map to locate it. If you succeed, not\n\
+                only will you be freed, you will gain power, wealth, and fame.\n\
+                And if you fail or refuse, we shou meet in hell with eternal damnation");
+    }
+    else{
+        printf("Invalid choice, plz choose again");
+    }    
+}
+
+void Choice_5A(){
+    printf("\nA.) Accept \n\
+    \n\
+    B.) Decline");
+    scanf("%s", &choice_5);
+    //add a while loop to prevent stupid users*******************************************************
+    if(choice_5 == "A" || choice_5 == "a"){
+        printf("A strange power is coursing through ",user_name," and ",user_name2,",\n\
+                feeling them with determination and as powerful as ever.\n");
+    }
+    if(choice_5 == "B" || choice_5 == "b"){ 
+        printf("Devil: Well...well\n\
+                ",user_name," and ",user_name2," ended up in hell and receive eternal punishment,\n\
+                thank to your stupid decision. :D and im making you restarting the whole story.\n");
+                exit(1);
+    }
+}    
+
+void MID_STORY(){ //Middle story 1
+    //Middle Story 2
+    //Middle story 3
+    printf("Both user_",user_name," and ",user_name2," come home with some money and stacks of paper,\n\
+    expressing little to no emotion and couldn’t believe what of a day they encountered.\n\
+    Still, they lied to their parent again, and it could be their last time.\n\
+    Pretending they’re getting hired from a foreign job, they need to travel far away using a boat,\n\
+    but in reality, they have to abandon everything to save themselves and achieve the rewards.\n\
+    The parent says their last farewell and is proud of their son growing up.\n\
+    \n\
+    Upon their trip, ",user_name," and ",user_name2," talked together emotionally,\n\
+    preparing for what was next. A massive storm struck the boat and partially burnt the paper.\n\
+    ",user_name," and ",user_name2," panicked but eventually calmed down and decided which path to\n\
+    take that would ultimately determine their faith using their new gifted power of short-term future memory\n\
+    \n\
+    A.) Majestic Ancient Forest: An infamous forest home to all kinds of mutilated creatures.\n\
+    History has it that it was created through the battle between hell and nature,\n\
+    an intense battle that lasted millions of years. Many innocent creatures were gradually\n\
+    turned into each side’s weapons during the Great Forest War, acting as spears and shields for nature and hell.\n\
+    Giant golem with teeth as sharp as Gabriel’s blade, a reptile with acid-breathing fire,\n\
+    or a rabbit that can wipe out an entire city. As heaven is finally sick of this conflict,\n\
+    they sent one of their mighty warrior, Gabriel, with his undefeatable army and blade.\n\
+    Gabriel and his men crushed both sides of the conflict and their holy power to exterminate any creature in\n\
+    the forest. Or so they thought; many creatures survived and adapted to hide from the sacred light.\n\
+    Who knows what type of creatures that’s lurking in the deep wood...\n\
+    \n\
+    \n\
+    B.) Nameless’s Path: An essential path that links every other path to this one.\n\
+    There used to be a prosperous kingdom ruled by Zagat, a mighty and beloved king during that era.\n\
+    The King proclaimed that this path should be owned by his and his kingdom only, and any invader who stepped foot\n\
+    on any inches of the soil would be met with his royal army. Many feared the path and did not even get close\n\
+    to it as Zagat’s men heavily guarded it. God heard about this and wanted to test Zagat,\n\
+    knowing Zagat is a religious man who would put religion on top of anything.\n\
+    When Zagat heard about God stepping on top of his precious path, he ferociously rode to the path and\n\
+    challenged God with his men ignoring the consequences due to his arrogance and value of fame.\n\
+    God punishes him, his kingdom, army, and the path and surrounding environment.\n\
+    The once beautiful path was surrounded by animals and green trees and was now in total darkness,\n\
+    with the only source of light being the moon. Not even a cockroach would get near that area.\n\
+    Do you want to explore what’s hidden inside the path?\n\
+    \n\
+    \n\
+    C.) Possessed Town of Things: The eventual defeat of the heavenly figure, Gabriel,\n\
+    in the Blighttown War results in the permanent cursing of the entire town.\n\
+    Many called it “God’s Blind Spot” as there’s no protection from heaven and a place where no\n\
+    heavenly figure can enter. This town's abundance of evil deities, god, and entities resides\n\
+    due to no heaven interference. Ritual is the most common practice in these towns; all types of things\n\
+    are summoned. It’s unclear what causes the defeat of Gabriel, but a clear warning is sent by God\n\
+    that an invasion of the Possessed Town of Things is ticking, “My creation, my property, my souls.\n\
+    Break those once; I will break you thrice; prepare for your judgment, demons!”\n\
+    \n\
+    ");
+    scanf("%s", &choice_MID);
+        
+        while(choice_MID != "A" && choice_MID != "a" && choice_MID != "B" && choice_MID != "b" && choice_MID != "C" && choice_MID != "c" ) {
+            printf("Invalid option, plz choose again\n\
+            \n\
+            ");
+            printf("Both ",user_name," and ",user_name2," come home with some money and stacks of paper,\n\
+                    expressing little to no emotion and couldn’t believe what of a day they encountered.\n\
+                    Still, they lied to their parent again, and it could be their last time.\n\
+                    Pretending they’re getting hired from a foreign job, they need to travel far away using a boat,\n\
+                    but in reality, they have to abandon everything to save themselves and achieve the rewards.\n\
+                    The parent says their last farewell and is proud of their son growing up.\n\
+                    \n\
+                    Upon their trip, ",user_name," and ",user_name2," talked together emotionally,\n\
+                    preparing for what was next. A massive storm struck the boat and partially burnt the paper.\n\
+                    ",user_name," and ",user_name2," panicked but eventually calmed down and decided which path to\n\
+                    take that would ultimately determine their faith using their new gifted power of short-term future memory\n\
+                    \n\
+                    A.) Majestic Ancient Forest: An infamous forest home to all kinds of mutilated creatures.\n\
+                    History has it that it was created through the battle between hell and nature,\n\
+                    an intense battle that lasted millions of years. Many innocent creatures were gradually\n\
+                    turned into each side’s weapons during the Great Forest War, acting as spears and shields for nature and hell.\n\
+                    Giant golem with teeth as sharp as Gabriel’s blade, a reptile with acid-breathing fire,\n\
+                    or a rabbit that can wipe out an entire city. As heaven is finally sick of this conflict,\n\
+                    they sent one of their mighty warrior, Gabriel, with his undefeatable army and blade.\n\
+                    Gabriel and his men crushed both sides of the conflict and their holy power to exterminate any creature in\n\
+                    the forest. Or so they thought; many creatures survived and adapted to hide from the sacred light.\n\
+                    Who knows what type of creatures that’s lurking in the deep wood...\n\
+                    \n\
+                    \n\
+                    \n\
+                    \n\
+                    B.) Nameless’s Path: An essential path that links every other path to this one.\n\
+                    There used to be a prosperous kingdom ruled by Zagat, a mighty and beloved king during that era.\n\
+                    The King proclaimed that this path should be owned by his and his kingdom only, and any invader who stepped foot\n\
+                    on any inches of the soil would be met with his royal army. Many feared the path and did not even get close\n\
+                    to it as Zagat’s men heavily guarded it. God heard about this and wanted to test Zagat,\n\
+                    knowing Zagat is a religious man who would put religion on top of anything.\n\
+                    When Zagat heard about God stepping on top of his precious path, he ferociously rode to the path and\n\
+                    challenged God with his men ignoring the consequences due to his arrogance and value of fame.\n\
+                    God punishes him, his kingdom, army, and the path and surrounding environment.\n\
+                    The once beautiful path was surrounded by animals and green trees and was now in total darkness,\n\
+                    with the only source of light being the moon. Not even a cockroach would get near that area.\n\
+                    Do you want to explore what’s hidden inside the path?\n\
+                    \n\
+                    \n\
+                    \n\
+                    \n\
+                    \n\
+                    C.) Possessed Town of Things: The eventual defeat of the heavenly figure, Gabriel,\n\
+                    in the Blighttown War results in the permanent cursing of the entire town.\n\
+                    Many called it “God’s Blind Spot” as there’s no protection from heaven and a place where no\n\
+                    heavenly figure can enter. This town's abundance of evil deities, god, and entities resides\n\
+                    due to no heaven interference. Ritual is the most common practice in these towns; all types of things\n\
+                    are summoned. It’s unclear what causes the defeat of Gabriel, but a clear warning is sent by God\n\
+                    that an invasion of the Possessed Town of Things is ticking, “My creation, my property, my souls.\n\
+                    Break those once; I will break you thrice; prepare for your judgment, demons!”\n\
+                    \n\
+                    ");
+                    
+            scanf("%s", &choice_MID);
+        }    
+}
+
+void Ending_A() { //Ending 1
+    //Ending 2
+    //Ending 3
+    if(choice_MID == "A" || choice_MID == "a") {
+        printf("A.) Enter a hidden cave beside\n\
+    \n\
+                B.) Challenge Aldwulf, an insane creature of the forest\n\
+    \n\
+                C.) LEAVE!\n");
+    }    
+        scanf("%s", &choice_END);
+        if(choice_END == "A" || choice_END == "a"){ //Ending 1
+            printf(user_name," and ",user_name2," entered the cave fearlessly,\n\
+                trying to find the creature that Devil asked for. They felt dizzy and nauseous upon entering\n\
+                the cave but still moved forward. As they traveled deeper into the cave, their symptoms grew\n\
+        more intense, and they heard voices inside the head. Eventually, both couldn’t handle the unbearable pain\n\
+        and torture, so they tried to find ways out.\n\
+        As hopes start to fall, they encounter a strange light emitting from the entrance\n\
+        and run into it as if their life depended on it. And they came out, becoming a terrifying\n\
+        monster that’s not scared of no fear.\n\
+        \n\
+        Ending #1 - Hidden Bad Ending");
+        }    
+        
+        else if(choice_END == "B" || choice_END == "b") { //Ending 2
+            printf(user_name," and ",user_name2," saw a creature that somewhat resembled the appearance\n\
+            of that Devil’s description. Desperately trying to finish their goal and put an end to their curse.\n\
+            They challenged the insane deer, stumbling in front of its face; ",user_name," and ",user_name2," used\n\
+            their magic power to defeat it. Before the magic even touches the deer.\n\
+            ",user_name," and ",user_name2," died and were eaten by it.\n\
+            Their power was no match for the majestic deer, not even close.\n\
+            \n\
+            Ending #2 - Brave Ending");
+        }    
+            
+        else if(choice_END == "C" || choice_END == "c") { //Ending 3
+            printf(user_name," and ",user_name2," regret their decisions and decide to change their mind\n\
+            about returning home. They used their power to quickly travel home, living peacefully for a year\n\
+            before the devil snatched their soul. During the time of peace they’re living, they spend their last\n\
+            moment together with their parent and friend, treating every day as if it were their last day.\n\
+            And they manage to enjoy and be grateful that life has given them, therefore having no regrets nor\n\
+            resisting when the Devil claim their soul. They passed out peacefully, with their friends and relatives\n\
+            attending their funeral.\n\
+            \n\
+            Ending #3 - Sad Ending");
+        }   
+
+        while(choice_END != "A" && choice_END != "a" && choice_END != "B" && choice_END != "b" && choice_END != "C" && choice_END != "c" ) {
+            printf("Invalid choice, plz choose again!\n\
+            \n\
+            ");
+            printf("A.) Enter a hidden cave beside\n\
+    \n\
+                B.) Challenge Aldwulf, an insane creature of the forest\n\
+    \n\
+                C.) LEAVE!\n");
+        }    
+        scanf("%s", &choice_END);
+}
+    
+
+void Ending_B() {//Ending 4
+    //Ending 5
+    //Ending 6
+    if(choice_MID == "B" || choice_MID == "b"){
+        printf("A.) Summon Zagat\n\
+    \n\
+                B.) Pray\n\
+    \n\
+                C.) Continue down the path\n");
+    }    
+    scanf("%s", &choice_END);
+        if(choice_END == "A" || choice_END == "a"){ //Ending 4
+            printf(user_name," and ",user_name2," used their pre-experience of summoning and summoned Zagat.\n\
+            They both ask Zagat to assist them on their journey. Thanks to ",user_name," and ",user_name2," summoning\n\
+            him again in the overworld, Zagat agrees. Upon traveling more profound into the path to find the\n\
+            creature, Zagat slays any entity that comes close, increasing the confidence of both\n\
+            ",user_name," and ",user_name2," into dreaming of their life after this is all over.\n\
+            A buffalo appeared, a wild one, well, Zagat thinks and slays it with all his might.\n\
+            Realizing that Zagat has slain God’s guardian buffalo, God appeared and struck Zagat\n\
+            and ",user_name," and ",user_name2," with his wrath. Punishing all of them into hell with God’s anger.\n\
+            \n\
+            Ending #4 God’s Wrath ending");
+        }
+        else if(choice_END == "B" || choice_END == "b") { //Ending 5
+            printf(user_name," and ",user_name2," prayed about their journey and dealt with the devil since\n\
+            they were kids in the Holy Heaven. Out of empathy, gods and deity spared them from the Devil.\n\
+            The only way that God can save ",user_name," and ",user_name2," out of the Devil’s deal is by taking\n\
+            them to heaven, where the Devil can’t lay a single inch on the soil. God offered it to\n\
+            ",user_name," and ",user_name2," and took this chance to accept it to save themselves from these\n\
+            nightmares. ",user_name," and ",user_name2," were extraordinarily grateful and devoted their life as\n\
+            angels to their duties and god. Soon they were assigned to the mission with Gabriel to retake\n\
+            “Possessed Town of Things” and take back what belonged to heaven.\n\
+            \n\
+            Ending #5 - Good Ending");
+        }
+        else if(choice_END == "C" || choice_END == "c") { //Ending 6
+            printf(user_name," and ",user_name2," continue down the path. What seems like a minute turns into day.\n\
+            They kept on walking and walking, and the path never seemed to end. When ",user_name," and ",user_name2,"\n\
+            realize that the path is never-ending, it is too late for them to leave. They spent their whole\n\
+            life there, unable to starve or in need of anything. The path seems like a torture place, unable to\n\
+            escape or do anything. The darkness illuminates everywhere they look. The planned land looks depressing\n\
+            and sinister.\n\
+            \n\
+            Ending 6 - Cursed Ending");
+        }    
+        while(choice_END != "A" && choice_END != "a" && choice_END != "B" && choice_END != "b" && choice_END != "C" && choice_END != "c" ) {
+            printf("Invalid choice, plz choose again!\n\
+            \n\
+            ");
+            printf("A.) Summon Zagat\n\
+    \n\
+                    B.) Pray\n\
+    \n\
+                    C.) Continue down the path\n");
+            scanf("%s", &choice_END);
+        }
+}        
+
+    
+
+void Ending_C() {//Ending7
+    //Ending8
+    //Ending9
+    if(choice_MID == "C" || choice_MID == "c"){ 
+        printf("A.) Challenge that “Thing”\n\
+    \n\
+                B.) Challenge the Devil\n\
+    \n\
+                C.) Challenge King Dice\n");
+    }
+            scanf("%s", &choice_END);
+    if(choice_END == "A" || choice_END == "a"){ //Ending 7
+            printf(user_name," and ",user_name2," finally claim the creature's soul that the Devil wanted.\n\
+        They happily return to where they met the Devil, summoned it immediately, and offered the creature's soul.\n\
+        The Devil was surprised because only a few mortals had passed the deal without consequence. He kept his words\n\
+        ,so he freed both user_input1 and user_input2 and granted the thing he promised.\n\
+        ",user_name," and ",user_name2," lived a fantastic life with no struggles, their fortunes,\n\
+        wealth, and fame were ungodlily matchable to anyone in the world.\n\
+        \n\
+        Ending #7 - True Ending");
+    }    
+        
+        else if(choice_END == "B" || choice_END == "b") { //Ending 8
+            printf("A gown of darkness veils the world,\n\
+                    And clouds float on, arriving.\n\
+                    Like galleons with sails unfurled,\n\
+                    The gale brings forth them, thriving.\n\
+\n\
+                    And yet unphased, the mortals sit,\n\
+                    Anticipating - this is it!\n\
+                    The cannons blaze and the match is lit!\n\
+                    Let now the heavens fire spit!\n\
+\n\
+            ",user_name," and ",user_name2," died instantly as soon as they challenged the Devil.\n\
+            Idk why I even created this option, as it’s common sense not to fight such a menacing enemy.\n\
+            I guess I made this to see if you would have picked it.................Are you still here?\n\
+            Waiting for the story? Ughh, fine, here’s an ending to the story. ",user_name," and ",user_name2," got\n\
+            rekt by the Devil in one move, and they got sent to hell for permanent and extra painful torture in hell.\n\
+\n\
+            Ending #8 Worst Ending");
+        }    
+            
+        else if(choice_END == "C" || choice_END == "c") { //Ending 9
+            printf("To those impatient for the fruits of growth, a punishment of bitterness and dearth.\n\
+                    To those who steadfast wait for harvest tide, a feast of plenitude within the earth!\n\
+            King Dice seeing the potential in user_input1 and user_input2, turned them into his slave\n\
+            and minion. He faked the death of user_input1 and user_input2 for the deal with the devil to be broken.\n\
+            There,  ",user_name," and ",user_name2," follow under the rule of King Dice\n\
+            and fight any mortals they encounter.\n\
+\n\
+            Ending #9 ??? Ending");
+        }    
+
+        while(choice_END != "A" && choice_END != "a" && choice_END != "B" && choice_END != "b" && choice_END != "C" && choice_END != "c" ) {
+            printf("Invalid choice, plz choose again!\n\
+            \n\
+            ");
+            printf("A.) Challenge that “Thing”\n\
+    \n\
+                    B.) Challenge the Devil\n\
+    \n\
+                    C.) Challenge King Dice\n");
+            scanf("%s", &choice_END);
+        }    
+}                
+    
+
+
+
+
+int main(){
+    cheatsheet();
+    printf("Please insert a username for your first character:\n ");
+    scanf("%s", &user_name); 
+
+    printf("Please insert a username for your second character:\n ");
+    scanf("%s", &user_name2); 
+    intro();
+    if(choice_1 == "A" || choice_1 == "a") {
+        Choice1A();
+        Choice2A();
+        Choice3A();
+        Choice4A();
+        Choice4B();
+        Choice_5A();
+        MID_STORY();
+        if(choice_MID == "A" || choice_MID == "a") {
+            Ending_A();
+        }
+        if(choice_MID == "B" || choice_MID == "b"){
+            Ending_B();
+        }
+        if(choice_MID == "C" || choice_MID == "c"){
+            Ending_C();
+        }
+    }
+    if(choice_1 == "B" || choice_1 == "b") {
+        Choice1B();
+        if(choice_1 == "A" || choice_1 == "a") {
+            Choice1A();
+            Choice2A();
+            Choice3A();
+            Choice4A();
+            Choice4B();
+            Choice_5A();
+            MID_STORY();
+            if(choice_MID == "A" || choice_MID == "a") {
+                Ending_A();
+            }
+            if(choice_MID == "B" || choice_MID == "b"){
+                Ending_B();
+            }
+            if(choice_MID == "C" || choice_MID == "c"){
+                Ending_C();
+            }
+        }
+    }  
+    if(choice_1 == "C" || choice_1 == "c") {
+        Choice1B();
+        if(choice_1 == "A" || choice_1 == "a") {
+            Choice1A();
+            Choice2A();
+            Choice3A();
+            Choice4A();
+            Choice4B();
+            Choice_5A();
+            MID_STORY();
+            if(choice_MID == "A" || choice_MID == "a") {
+                Ending_A();
+            }
+            if(choice_MID == "B" || choice_MID == "b"){
+                Ending_B();
+            }
+            if(choice_MID == "C" || choice_MID == "c"){
+                Ending_C();
+            }
+        }
+        if(choice_1 == "C" || choice_1 == "c") {
+            Choice1C();
+        }
+    }
+    if(choice_1 == "C" || choice_1 == "c") {
+        Choice1C();
+    }
+
+}
+
