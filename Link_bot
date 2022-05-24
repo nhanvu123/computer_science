@@ -1,0 +1,23 @@
+#include <linkbot.h>
+#include<math.h>
+CLinkbotI robot,b2;
+double x, y, z, x1, y1, z1;
+robot.setSpeed(4,1.75);
+b2.setSpeed(4,1.75);
+b2.getAccelerometerData(x1, y1, z1);
+
+
+while(1) {
+    robot.driveDistanceNB(1.5,1.75);
+    
+    b2.getAccelerometerData(x, y, z);
+    printf("Accelerometer: x: %lf y: %lf z: %lf\n", x, y, z);
+    
+    if (abs(y1-y)>0.15) {
+            printf("y!=0\n");
+            robot.driveDistance(-0.01,1.75);
+            break;
+    }
+}
+b2.driveDistance(8.2,1.75);
+
