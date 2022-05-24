@@ -1,0 +1,41 @@
+import random
+age1 = random.randint(12, 10000)
+name = input("Hello there, what should I call you as?...")
+print("Hi," + name + " nice to meet you")
+
+age = input("May I guess your age? ")
+if (age == "no" or age == "No"):
+    print("hmm...")
+elif(age == "yes" or age == "sure"):
+        print("Your age is..." + str(age1))
+elif(age == "easter egg"):
+        print("Congrats you found the easter egg!")
+else:
+    print("sory it seem like im 2 dum understand what your saying, i gues its fine to move on")
+    
+c = input("What's your favorite candy?")
+if (c == "kitkat" or c == "Kitkat"):
+    print(c + " is delicious")
+elif(c == "twix" or c == "Twix"):
+    print(c + " is ehh, it's okay, not the best, not the worst")
+else:
+    print(c + "is tasty as well")
+
+r = random.choice(["dog", "cat", "fish"])
+r1 = input("Whats your favorite pet?")
+print(r1 + " are cool" + (". My favorite pet is " + r1))
+
+o = input("How's your day?")
+print("My day is... " + o + " as well")
+
+s = str(input("What's your birthday?"))
+if (s == "11//9//2021"):
+    print("HAPPY BIRHTDAY!!!!")
+else:
+    print("Alrighty " + str(s) + " I will remember that day :)")
+    
+z = random.randint(0, 5)
+if(z == 1 or z == 5):
+    print("I will be your friend :)")
+else:
+    print("You suck")
